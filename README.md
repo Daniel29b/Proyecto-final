@@ -13,7 +13,6 @@ Tabla studios:
 -call deletestudiobyid(); Elimina un registro
 -call deleteallstudios(); Elimina todos los estudios
 
-
 Tabla writers:
 -call getallwriters(); Regresa la tabla de todas los escritores disponibles
 -call getwriterid(); Regresa un escritor en especifico
@@ -29,3 +28,11 @@ Tabla genres:
 -call updategenre(); Actualiza un registro
 -call deletegenrebyid(); Elimina un registro
 -call deleteallgenres(); Elimina todos los generos
+
+Tabla platforms:
+-call getallplatforms(); Regresa la tabla de todas las plataformas disponibles
+-call getplatformbyid(); Regresa una plataforma en especifico
+-call createplatform(); Añade un registro a la tabla
+-call updateplatform(); Actualiza un registro
+-call deleteplatformbyid(); Elimina un registro
+-call deleteallplatforms(); Elimina todas las plataformas
