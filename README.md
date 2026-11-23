@@ -14,5 +14,11 @@ Tabla studios:
 -call deleteallstudios(); Elimina todos los estudios
 
 
-
+Tabla writers:
+-call getallwriters(); Regresa la tabla de todas los escritores disponibles
+-call getwriterid(); Regresa un escritor en especifico
+-call createwriter(); Añade un escritor a la tabla
+-call updatewriter(); Actualiza un registro
+-call deletewriteryid(); Elimina un registro
+-call deleteallwriters(); Elimina todos los escritores
 
