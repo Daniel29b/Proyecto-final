@@ -22,3 +22,10 @@ Tabla writers:
 -call deletewriteryid(); Elimina un registro
 -call deleteallwriters(); Elimina todos los escritores
 
+Tabla genres:
+-call getallgenres(); Regresa la tabla de todas los generos disponibles
+-call getgenreid(); Regresa un genero en especifico
+-call creategenre(); Añade un registro a la tabla
+-call updategenre(); Actualiza un registro
+-call deletegenrebyid(); Elimina un registro
+-call deleteallgenres(); Elimina todos los generos
