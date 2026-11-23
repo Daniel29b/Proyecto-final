@@ -36,3 +36,11 @@ Tabla platforms:
 -call updateplatform(); Actualiza un registro
 -call deleteplatformbyid(); Elimina un registro
 -call deleteallplatforms(); Elimina todas las plataformas
+
+Tabla novels:
+-call getallnovels(); Regresa la tabla de todas las novelas disponibles
+-call getnovelbyid(); Regresa toda una novela en especifico
+-call createnovel(); Añade un registro a la tabla
+-call updatenovel(); Actualiza un registro
+-call deletenovelbyid(); Elimina un registro
+-call deleteallnovels(); Elimina todas las novelas
