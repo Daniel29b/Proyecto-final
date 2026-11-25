@@ -262,7 +262,61 @@ end //
 
 delimiter ;
 
+delimiter //
 
+create procedure getallplatforms()
+begin
+    select * from platforms;
+end //
+
+create procedure getplatformbyid(
+    in p_platform_name varchar(100)
+)
+begin
+    select *
+    from platforms
+    where platform_name = p_platform_name;
+end //
+
+create procedure createplatform(
+    in p_platform_name varchar(100),
+    in p_company varchar(100)
+)
+begin
+    insert into platforms
+    values (
+        p_platform_name,
+        p_company
+    );
+end //
+
+create procedure updateplatform(
+    in p_old_platform_name varchar(100),
+    in p_new_platform_name varchar(100),
+    in p_company varchar(100)
+)
+begin
+    update platforms
+    set
+        platform_name = p_new_platform_name,
+        company = p_company
+    where platform_name = p_old_platform_name;
+end //
+
+create procedure deleteplatformbyid(
+    in p_platform_name varchar(100)
+)
+begin
+    delete from platforms
+    where platform_name = p_platform_name;
+end //
+
+create procedure deleteallplatforms()
+begin
+    delete from platforms;
+end //
+
+delimiter ;
 
 delimiter //
 
