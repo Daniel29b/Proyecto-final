@@ -159,6 +159,58 @@ end //
 
 delimiter ;
 
+delimiter //
+
+create procedure getallwriters()
+begin
+    select * from writers;
+end //
+
+create procedure getwriterbyid(
+    in p_writer_name varchar(100)
+)
+begin
+    select *
+    from writers
+    where writer_name = p_writer_name;
+end //
+
+create procedure createwriter(
+    in p_writer_name varchar(100)
+)
+begin
+    insert into writers
+    values (
+        p_writer_name
+    );
+end //
+
+create procedure updatewriter(
+    in p_old_writer_name varchar(100),
+    in p_new_writer_name varchar(100)
+)
+begin
+    update writers
+    set
+        writer_name = p_new_writer_name
+    where writer_name = p_old_writer_name;
+end //
+
+create procedure deletewriterbyid(
+    in p_writer_name varchar(100)
+)
+begin
+    delete from writers
+    where writer_name = p_writer_name;
+end //
+
+create procedure deleteallwriters()
+begin
+    delete from writers;
+end //
+
+delimiter ;
+
 
 
 delimiter //
