@@ -1,0 +1,102 @@
+create database visual_novel;
+use visual_novel;
+
+create table studios (
+    studio_id int auto_increment primary key,
+    studio_name varchar(100),
+    country varchar(100),
+    foundation_year int
+);
+
+insert into studios (studio_name, country, foundation_year) values
+('Type-Moon', 'Japan', 2000),
+('Capcom', 'Japan', 1979),
+('Spike Chunsoft', 'Japan', 1984),
+('MAGES', 'Japan', 2006),
+('07th Expansion', 'Japan', 2002),
+('Key', 'Japan', 1998),
+('KID', 'Japan', 1988),
+('CING', 'Japan', 1999),
+('Nitroplus', 'Japan', 2000),
+('Leaf', 'Japan', 1995);
+
+create table writers (
+    writer_id int auto_increment primary key,
+    writer_name varchar(100)
+);
+
+insert into writers (writer_name) values
+('Kinoko Nasu'),
+('Shu Takumi'),
+('Kazutaka Kodaka'),
+('Naotaka Hayashi'),
+('Ryukishi07'),
+('Kotaro Uchikoshi'),
+('Jun Maeda'),
+('Rika Suzuki'),
+('Gen Urobuchi'),
+('Takumi Nakazawa');
+
+create table genres (
+    genre_id int auto_increment primary key,
+    genre_name varchar(100)
+);
+
+insert into genres (genre_name) values
+('Mystery'),
+('Science Fiction'),
+('Fantasy'),
+('Romance'),
+('Drama'),
+('Horror'),
+('Thriller'),
+('Psychological'),
+('Adventure'),
+('Comedy');
+
+create table platforms (
+    platform_id int auto_increment primary key,
+    platform_name varchar(100),
+    company varchar(100)
+);
+
+insert into platforms (platform_name, company) values
+('PC', 'Various'),
+('PlayStation 2', 'Sony'),
+('PlayStation Vita', 'Sony'),
+('Nintendo DS', 'Nintendo'),
+('Nintendo Switch', 'Nintendo'),
+('Xbox 360', 'Microsoft'),
+('Android', 'Google'),
+('iOS', 'Apple'),
+('PlayStation 4', 'Sony'),
+('Steam', 'Valve');
+
+create table novels (
+    novel_id int auto_increment primary key,
+    novel_name varchar(200),
+    release_year int,
+    studio_id int,
+    writer_id int,
+    genre_id int,
+    platform_id int,
+
+    foreign key (studio_id) references studios(studio_id),
+    foreign key (writer_id) references writers(writer_id),
+    foreign key (genre_id) references genres(genre_id),
+    foreign key (platform_id) references platforms(platform_id)
+);
+
+insert into novels
+(novel_name, release_year, studio_id, writer_id, genre_id, platform_id)
+values
+('Fate Stay Night', 2004, 1, 1, 3, 1),
+('Phoenix Wright Ace Attorney', 2001, 2, 2, 1, 4),
+('Danganronpa', 2010, 3, 3, 8, 3),
+('Witch on the Holy Night', 2012, 1, 1, 3, 1),
+('Steins Gate', 2009, 4, 4, 2, 6),
+('Umineko When They Cry', 2007, 5, 5, 1, 1),
+('999 Nine Hours Nine Persons Nine Doors', 2009, 3, 6, 7, 4),
+('CLANNAD', 2004, 6, 7, 4, 1),
+('Never7', 2000, 7, 6, 4, 1),
+('Hotel Dusk Room 215', 2006, 8, 8, 9, 4);
