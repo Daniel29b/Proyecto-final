@@ -100,3 +100,74 @@ values
 ('CLANNAD', 2004, 6, 7, 4, 1),
 ('Never7', 2000, 7, 6, 4, 1),
 ('Hotel Dusk Room 215', 2006, 8, 8, 9, 4);
+
+
+delimiter //
+
+create procedure getallnovels()
+begin
+    select * from novels;
+end //
+
+create procedure getnovelbyid(
+    in p_novel_name varchar(200)
+)
+begin
+    select *
+    from novels
+    where novel_name = p_novel_name;
+end //
+
+create procedure createnovel(
+    in p_novel_name varchar(200),
+    in p_release_year int,
+    in p_studio_name varchar(100),
+    in p_writer_name varchar(100),
+    in p_genre_name varchar(100),
+    in p_platform_name varchar(100)
+)
+begin
+    insert into novels
+    values (
+        p_novel_name,
+        p_release_year,
+        p_studio_name,
+        p_writer_name,
+        p_genre_name,
+        p_platform_name
+    );
+end //
+
+create procedure updatenovel(
+    in p_novel_name varchar(200),
+    in p_release_year int,
+    in p_studio_name varchar(100),
+    in p_writer_name varchar(100),
+    in p_genre_name varchar(100),
+    in p_platform_name varchar(100)
+)
+begin
+    update novels
+    set
+        release_year = p_release_year,
+        studio_name = p_studio_name,
+        writer_name = p_writer_name,
+        genre_name = p_genre_name,
+        platform_name = p_platform_name
+    where novel_name = p_novel_name;
+end //
+
+create procedure deleteallnovels()
+begin
+    delete from novels;
+end //
+
+create procedure deletenovelbyid(
+    in p_novel_name varchar(200)
+)
+begin
+    delete from novels
+    where novel_name = p_novel_name;
+end //
+
+delimiter ;
