@@ -211,6 +211,57 @@ end //
 
 delimiter ;
 
+delimiter //
+
+create procedure getallgenres()
+begin
+    select * from genres;
+end //
+
+create procedure getgenreid(
+    in p_genre_name varchar(100)
+)
+begin
+    select *
+    from genres
+    where genre_name = p_genre_name;
+end //
+
+create procedure creategenre(
+    in p_genre_name varchar(100)
+)
+begin
+    insert into genres
+    values (
+        p_genre_name
+    );
+end //
+
+create procedure updategenre(
+    in p_old_genre_name varchar(100),
+    in p_new_genre_name varchar(100)
+)
+begin
+    update genres
+    set genre_name = p_new_genre_name
+    where genre_name = p_old_genre_name;
+end //
+
+create procedure deletegenrebyid(
+    in p_genre_name varchar(100)
+)
+begin
+    delete from genres
+    where genre_name = p_genre_name;
+end //
+
+create procedure deleteallgenres()
+begin
+    delete from genres;
+end //
+
+delimiter ;
+
 
 
 delimiter //
