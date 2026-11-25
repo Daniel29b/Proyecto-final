@@ -101,6 +101,65 @@ values
 ('Never7', 2000, 7, 6, 4, 1),
 ('Hotel Dusk Room 215', 2006, 8, 8, 9, 4);
 
+delimiter //
+
+create procedure getallstudios()
+begin
+    select * from studios;
+end //
+
+create procedure getstudiobyid(
+    in p_studio_name varchar(100)
+)
+begin
+    select *
+    from studios
+    where studio_name = p_studio_name;
+end //
+
+create procedure createstudio(
+    in p_studio_name varchar(100),
+    in p_country varchar(100),
+    in p_foundation_year int
+)
+begin
+    insert into studios
+    values (
+        p_studio_name,
+        p_country,
+        p_foundation_year
+    );
+end //
+
+create procedure updatestudio(
+    in p_studio_name varchar(100),
+    in p_country varchar(100),
+    in p_foundation_year int
+)
+begin
+    update studios
+    set
+        country = p_country,
+        foundation_year = p_foundation_year
+    where studio_name = p_studio_name;
+end //
+
+create procedure deletestudiobyid(
+    in p_studio_name varchar(100)
+)
+begin
+    delete from studios
+    where studio_name = p_studio_name;
+end //
+
+create procedure deleteallstudios()
+begin
+    delete from studios;
+end //
+
+delimiter ;
+
+
 
 delimiter //
 
